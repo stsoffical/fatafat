@@ -3,7 +3,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import { ChevronDown, Wrench, Sparkles, ShowerHead } from "lucide-react";
-import { Popover, PopoverTrigger, PopoverContent } from "@/components/ui/popover";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from "@/components/ui/popover";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -54,13 +58,23 @@ export default function Navbar() {
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center">
-          <Image src="/images/logo.png" alt="Logo" width={40} height={40} priority />
+          <Image
+            src="/images/logo.png"
+            alt="Logo"
+            width={40}
+            height={40}
+            priority
+          />
         </div>
 
         {/* Navigation */}
         <nav className="hidden md:flex space-x-8 font-medium relative">
-          <a href="#home" className="hover:text-secondary transition-colors">Home</a>
-          <a href="#about" className="hover:text-secondary transition-colors">About Us</a>
+          <a href="#home" className="hover:text-secondary transition-colors">
+            Home
+          </a>
+          <a href="#about" className="hover:text-secondary transition-colors">
+            About Us
+          </a>
 
           {/* Services Dropdown */}
           <Popover open={open} onOpenChange={setOpen}>
@@ -70,7 +84,11 @@ export default function Navbar() {
               onMouseLeave={() => setOpen(false)}
             >
               Services
-              <ChevronDown className={`w-4 h-4 transition-transform ${open ? "rotate-180" : ""}`} />
+              <ChevronDown
+                className={`w-4 h-4 transition-transform ${
+                  open ? "rotate-180" : ""
+                }`}
+              />
             </PopoverTrigger>
             <PopoverContent
               className="w-[900px] p-6 grid grid-cols-3 gap-8 bg-popover text-popover-foreground shadow-lg border rounded-lg"
@@ -87,7 +105,10 @@ export default function Navbar() {
                   <ul className="space-y-2">
                     {section.items.map((item, i) => (
                       <li key={i}>
-                        <a href="#" className="block hover:text-secondary transition-colors">
+                        <a
+                          href="#"
+                          className="block hover:text-secondary transition-colors"
+                        >
                           {item}
                         </a>
                       </li>
@@ -98,8 +119,12 @@ export default function Navbar() {
             </PopoverContent>
           </Popover>
 
-          <a href="#blogs" className="hover:text-secondary transition-colors">Blogs</a>
-          <a href="#contact" className="hover:text-secondary transition-colors">Contact Us</a>
+          <a href="#blogs" className="hover:text-secondary transition-colors">
+            Blogs
+          </a>
+          <a href="#contact" className="hover:text-secondary transition-colors">
+            Contact Us
+          </a>
         </nav>
 
         {/* CTA Button */}
@@ -112,10 +137,23 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button className="p-2 rounded-md hover:bg-muted transition-colors" aria-label="Open Menu">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
-              viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          <button
+            className="p-2 rounded-md hover:bg-muted transition-colors"
+            aria-label="Open Menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
           </button>
         </div>
