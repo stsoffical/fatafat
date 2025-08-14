@@ -2,12 +2,20 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ChevronDown, Wrench, Sparkles, ShowerHead } from "lucide-react";
+import {
+  ChevronDown,
+  Wrench,
+  Sparkles,
+  ShowerHead,
+  AlignJustify,
+} from "lucide-react";
 import {
   Popover,
   PopoverTrigger,
   PopoverContent,
 } from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -69,12 +77,15 @@ export default function Navbar() {
 
         {/* Navigation */}
         <nav className="hidden md:flex space-x-8 font-medium relative">
-          <a href="#home" className="hover:text-secondary transition-colors">
+          <Link href="#home" className="hover:text-secondary transition-colors">
             Home
-          </a>
-          <a href="#about" className="hover:text-secondary transition-colors">
+          </Link>
+          <Link
+            href="#about"
+            className="hover:text-secondary transition-colors"
+          >
             About Us
-          </a>
+          </Link>
 
           {/* Services Dropdown */}
           <Popover open={open} onOpenChange={setOpen}>
@@ -105,12 +116,12 @@ export default function Navbar() {
                   <ul className="space-y-2">
                     {section.items.map((item, i) => (
                       <li key={i}>
-                        <a
+                        <Link
                           href="#"
                           className="block hover:text-secondary transition-colors"
                         >
                           {item}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -119,43 +130,26 @@ export default function Navbar() {
             </PopoverContent>
           </Popover>
 
-          <a href="#blogs" className="hover:text-secondary transition-colors">
+          <Link
+            href="#blogs"
+            className="hover:text-secondary transition-colors"
+          >
             Blogs
-          </a>
-          <a href="#contact" className="hover:text-secondary transition-colors">
+          </Link>
+          <Link
+            href="#contact"
+            className="hover:text-secondary transition-colors"
+          >
             Contact Us
-          </a>
+          </Link>
         </nav>
 
         {/* CTA Button */}
-        <a
-          href="#book"
-          className="hidden md:inline-block hover:bg-primary bg-secondary text-secondary-foreground px-5 py-2 rounded-lg shadow transition-all"
-        >
-          Book a Service
-        </a>
+        <Button href="#book">Book a Service</Button>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button
-            className="p-2 rounded-md hover:bg-muted transition-colors"
-            aria-label="Open Menu"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
+          <AlignJustify />
         </div>
       </div>
     </header>
